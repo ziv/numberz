@@ -1,5 +1,5 @@
 <div class="main">
-  <h1>Numbers</h1>
+  <h1>Numberz</h1>
   <ng-container *ngIf="!service.isRunning">
     <p>
       <button (click)="service.start()">Start Game</button>
@@ -12,5 +12,6 @@
     <p>
       <nmz-board [game]="service.game"></nmz-board>
     </p>
+    <p>You have to arrange numbers by order.</p>
   </ng-container>
 </div>
