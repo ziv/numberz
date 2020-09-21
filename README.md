@@ -10,4 +10,6 @@ cd numberz
 ng serve
 ```
 
+[Demo is available here](https://ziv.github.io/numberz/)
+
 Enjoy 
