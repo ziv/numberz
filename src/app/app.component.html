@@ -1,0 +1,16 @@
+<div class="main">
+  <h1>Numbers</h1>
+  <ng-container *ngIf="!service.isRunning">
+    <p>
+      <button (click)="service.start()">Start Game</button>
+    </p>
+  </ng-container>
+  <ng-container *ngIf="service.isRunning">
+    <p>
+      <button (click)="service.end()">End Game</button>
+    </p>
+    <p>
+      <nmz-board [game]="service.game"></nmz-board>
+    </p>
+  </ng-container>
+</div>

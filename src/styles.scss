@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  width: 500px;
+  margin: auto;
+
+  .sub {
+    padding: 1em 0;
+  }
+}
+
+$size: 50px;
+
+.movable {
+  cursor: pointer;
+  background-color: #dbcccc;
+}
+.movable:hover {
+  background-color: #b87b7b;
+}
+
+
+
+// top
+.pos0, .pos1, .pos2, .pos3 {
+  top: $size * 0;
+}
+
+.pos4, .pos5, .pos6, .pos7 {
+  top: $size * 1;
+}
+
+.pos8, .pos9, .pos10, .pos11 {
+  top: $size * 2;
+}
+
+.pos12, .pos13, .pos14, .pos15 {
+  top: $size * 3;
+}
+
+
+// left
+.pos0, .pos4, .pos8, .pos12 {
+  left: $size * 0;
+}
+
+.pos1, .pos5, .pos9, .pos13 {
+  left: $size * 1;
+}
+
+.pos2, .pos6, .pos10, .pos14 {
+  left: $size * 2;
+}
+
+.pos3, .pos7, .pos11, .pos15 {
+  left: $size * 3;
+}
