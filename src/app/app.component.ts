@@ -9,4 +9,8 @@ import {GameService} from './game.service';
 export class AppComponent {
   constructor(public readonly service: GameService) {
   }
+
+  get runs(): boolean {
+    return !!this.service?.board;
+  }
 }

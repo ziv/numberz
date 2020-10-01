@@ -1,16 +1,12 @@
 <div class="main">
   <h1>Numberz</h1>
-  <ng-container *ngIf="!service.isRunning">
-    <p>
-      <button (click)="service.start()">Start Game</button>
-    </p>
-  </ng-container>
-  <ng-container *ngIf="service.isRunning">
-    <p>
-      <button (click)="service.end()">End Game</button>
-    </p>
-    <p>
-      <nmz-board [game]="service.game"></nmz-board>
+  <p>
+    <button *ngIf="!runs" (click)="service.start()">Start Game</button>
+    <button *ngIf="runs" (click)="service.end()">End Game</button>
+  </p>
+  <ng-container *ngIf="runs">
+    <p *ngIf="service.board">
+      <nmz-board [board]="service.board" (move)="service.move($event)"></nmz-board>
     </p>
     <p>You have to arrange numbers by order.</p>
   </ng-container>

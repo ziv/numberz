@@ -1,27 +1,35 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Tile} from '../types';
+import {Tile} from '../game';
 
 @Component({
   selector: 'nmz-tile',
-  templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.scss']
+  template: `
+    <div [ngClass]="cls" (click)="move.emit(tile)">
+      <span>{{tile.value}}</span>
+    </div>`,
+  styles: [`
+    div {
+      height: 49px;
+      width: 49px;
+      line-height: 50px;
+      text-align: center;
+      position: absolute;
+      background-color: #b1b386;
+
+      border: 1px solid white;
+
+      transition-property: all;
+      transition-duration: .3s;
+      transition-timing-function: ease;
+    }`]
 })
 export class TileComponent {
   @Input() tile: Tile;
   @Output() move = new EventEmitter<Tile>();
 
-  action(): void {
-    this.move.emit(this.tile);
-  }
-
-  get value(): number {
-    return this.tile.value;
-  }
-
   get cls(): string {
-    const done = this.tile.done ? 'done' : '';
     const pos = `pos${this.tile.position}`;
     const movable = this.tile.movable ? 'movable' : '';
-    return `${pos} ${movable} ${done}`;
+    return `${pos} ${movable}`;
   }
 }

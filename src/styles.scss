@@ -17,13 +17,11 @@ $size: 50px;
 
 .movable {
   cursor: pointer;
-  background-color: #dbcccc;
+  background-color: red;
 }
 .movable:hover {
   background-color: #b87b7b;
 }
-
-
 
 // top
 .pos0, .pos1, .pos2, .pos3 {

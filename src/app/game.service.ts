@@ -1,42 +1,27 @@
 import {Injectable} from '@angular/core';
-import {Game, Tile} from './types';
-
-const shuffle = () => {
-  const arr = [];
-  for (let i = 0; i < 15; ++i) {
-    arr.push(i);
-  }
-  // arr.sort(() => Math.random() - .5);
-  return arr;
-};
-
+import {GameOo} from './game/game.oo.api';
+import {Board, Tile} from './game';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
-  game: Game;
+  game: GameOo;
 
-  constructor() {
-  }
-
-  get board(): Tile[] {
-    return [];
+  get board(): Board {
+    return this.game?.board;
   }
 
   start(): void {
-    this.game = new Game();
+    this.game = new GameOo();
+  }
+
+  move(tile: Tile): void {
+    this.game.move(tile);
   }
 
   end(): void {
     delete this.game;
     this.game = null;
-  }
-
-  get isDone(): boolean {
-    return this.game && this.game.done;
-  }
-  get isRunning(): boolean {
-    return !!this.game;
   }
 }
